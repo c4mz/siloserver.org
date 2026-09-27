@@ -8,7 +8,7 @@ import { pillars } from "../data/pillars";
       <div>
         <p class="section__eyebrow">
           <span class="hatch ink-blue" aria-hidden="true"></span>
-          <span>sec. 01 — what's underneath</span>
+          <span>what's underneath</span>
         </p>
         <h2 class="section__title">
           Built like <br />
@@ -24,13 +24,15 @@ import { pillars } from "../data/pillars";
 
     <div class="pillars" data-reveal-stagger>
       {
-        pillars.map((p, i) => (
+        pillars.map((p) => (
           <article class={`pillar pillar--${p.color}`} data-reveal>
             <div class="pillar__head">
               <span class="pillar__bar" aria-hidden="true" />
-              <span class="pillar__label">{p.label}</span>
-              <span class="pillar__index">
-                {String(i + 1).padStart(2, "0")}/04
+              {/* pillars.ts wraps each label in C-comment delimiters, which
+                  were part of the old datasheet styling. Strip them here so
+                  the data file stays untouched. */}
+              <span class="pillar__label">
+                {p.label.replace(/^\/\*\s*|\s*\*\/$/g, "")}
               </span>
             </div>
             <h3 class="pillar__title">{p.title}</h3>

@@ -1,75 +1,110 @@
-/* Starlight theme alignment with the project site's
-   industrial-datasheet design system. */
+/* Starlight theme alignment with the project site's design system:
+   neutral ground, Plus Jakarta Sans, one electric-blue accent. */
 
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,300..900&family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap");
 
 :root {
-  --sl-font: "Archivo", system-ui, sans-serif;
+  --sl-font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --sl-font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
-/* Light mode — paper + ink, blueprint-blue accent */
+/* Light mode — near-white ground, near-black ink */
 :root[data-theme="light"] {
-  --sl-color-accent-low: #dde4fa;
-  --sl-color-accent: #2447c9;
-  --sl-color-accent-high: #18308f;
-  --sl-color-white: #181511;
-  --sl-color-gray-1: #3f3a31;
-  --sl-color-gray-2: #4d4639;
-  --sl-color-gray-3: #6f6757;
-  --sl-color-gray-4: #9a917e;
-  --sl-color-gray-5: #ded6c1;
-  --sl-color-gray-6: #ece6d6;
-  --sl-color-gray-7: #f4f0e4;
-  --sl-color-black: #faf7ef;
-  --sl-color-bg-nav: #f4f0e4;
-  --sl-color-bg-sidebar: #f4f0e4;
-  --sl-color-hairline: #c9c0a9;
-  --sl-color-hairline-light: #ded6c1;
+  --sl-color-accent-low: #dde3ff;
+  --sl-color-accent: #0034fb;
+  --sl-color-accent-high: #0022a8;
+  --sl-color-white: #0a0a0b;
+  --sl-color-gray-1: #3d3d45;
+  --sl-color-gray-2: #4a4a53;
+  --sl-color-gray-3: #6b6b76;
+  --sl-color-gray-4: #9b9ba6;
+  --sl-color-gray-5: #e4e4ea;
+  --sl-color-gray-6: #f0f0f3;
+  --sl-color-gray-7: #f7f7f8;
+  --sl-color-black: #ffffff;
+  --sl-color-bg-nav: rgba(247, 247, 248, 0.8);
+  --sl-color-bg-sidebar: #f7f7f8;
+  --sl-color-hairline: #e4e4ea;
+  --sl-color-hairline-light: #eeeef2;
+  --sl-color-hairline-shade: #e4e4ea;
 }
 
-/* Dark mode — the operator console */
+/* Dark mode — true dark */
 :root[data-theme="dark"] {
-  --sl-color-accent-low: #1c2a5e;
-  --sl-color-accent: #92aaff;
-  --sl-color-accent-high: #c4d1ff;
-  --sl-color-white: #e8e0d0;
-  --sl-color-gray-1: #d0c8b5;
-  --sl-color-gray-2: #b3ac98;
-  --sl-color-gray-3: #8d8674;
-  --sl-color-gray-4: #5c5747;
-  --sl-color-gray-5: #423a2d;
-  --sl-color-gray-6: #2e2619;
-  --sl-color-gray-7: #2a2318;
-  --sl-color-black: #221c14;
+  --sl-color-accent-low: #16204d;
+  --sl-color-accent: #6b8cff;
+  --sl-color-accent-high: #b9c8ff;
+  --sl-color-white: #f4f4f7;
+  --sl-color-gray-1: #e4e4ea;
+  --sl-color-gray-2: #c3c3ce;
+  --sl-color-gray-3: #8d8d9b;
+  --sl-color-gray-4: #62626f;
+  --sl-color-gray-5: #35353f;
+  --sl-color-gray-6: #1c1c23;
+  --sl-color-gray-7: #16161b;
+  --sl-color-black: #08080a;
+  --sl-color-bg-nav: rgba(8, 8, 10, 0.8);
+  --sl-color-bg-sidebar: #0c0c0f;
+  --sl-color-hairline: #26262e;
+  --sl-color-hairline-light: #1c1c23;
+  --sl-color-hairline-shade: #26262e;
 }
 
-/* Headings in the display face */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.006em;
+}
+
+/* Headings — large and tight, sentence case */
 .sl-markdown-content h1,
 .sl-markdown-content h2,
 .sl-markdown-content h3,
-.site-title,
+.sl-markdown-content h4,
 h1[data-page-title] {
-  font-family: "Big Shoulders", "Archivo", sans-serif;
-  font-weight: 750;
-  letter-spacing: 0.01em;
+  font-family: var(--sl-font);
+  font-weight: 700;
+  letter-spacing: -0.032em;
+  line-height: 1.2;
 }
 h1[data-page-title] {
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  line-height: 0.95;
-  text-transform: uppercase;
-}
-.site-title {
-  font-size: 1.5rem;
-  text-transform: uppercase;
+  font-size: clamp(2rem, 4.2vw, 2.9rem);
   font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.038em;
+}
+/* Match the marketing wordmark: near-black text, not the accent link color. */
+.site-title {
+  font-family: var(--sl-font);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.045em;
+  color: var(--sl-color-white);
 }
 
-/* Sidebar + UI labels lean mono, like spec sheets */
+/* Sidebar + UI labels — quiet, sentence case */
 .sidebar-content .large,
 .sidebar-content summary .group-label span {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-family: var(--sl-font);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  color: var(--sl-color-gray-2);
+}
+.sidebar-content a {
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* Softer edges on the boxed surfaces Starlight ships */
+.expressive-code .frame pre,
+.sl-markdown-content pre,
+.sl-markdown-content :not(pre) > code,
+.card,
+.starlight-aside {
+  border-radius: 10px;
+}
+.sl-markdown-content :not(pre) > code {
+  padding: 0.15em 0.4em;
 }

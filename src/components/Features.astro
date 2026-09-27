@@ -9,7 +9,7 @@ import { REPOS, repoUrl } from "../data/siteConfig";
       <div>
         <p class="section__eyebrow">
           <span class="hatch ink-red" aria-hidden="true"></span>
-          <span>sec. 02 — what it does</span>
+          <span>what it does</span>
         </p>
         <h2 class="section__title">
           Eleven things that <br />
@@ -27,7 +27,6 @@ import { REPOS, repoUrl } from "../data/siteConfig";
       {
         features.map((f) => (
           <article class="feature" data-reveal>
-            <div class="feature__id">{f.id}</div>
             <h3 class="feature__title">{f.title}</h3>
             <p class="feature__body">{f.body}</p>
             <ul class="feature__chips">
@@ -44,13 +43,6 @@ import { REPOS, repoUrl } from "../data/siteConfig";
               })}
             </ul>
           </article>
-        ))
-      }
-      {/* Fill the trailing cells of the 3-col row so the grid's ruling
-          background (var(--ink)) isn't exposed as a bright block. */}
-      {
-        Array.from({ length: (3 - (features.length % 3)) % 3 }).map(() => (
-          <span class="feature feature--filler" aria-hidden="true" />
         ))
       }
     </div>

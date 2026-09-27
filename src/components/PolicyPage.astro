@@ -69,7 +69,7 @@ const { title, description, eyebrow, heading, meta } = Astro.props;
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 0.6rem 1.25rem;
-    font-family: var(--ff-mono);
+    font-family: var(--ff-body);
     font-size: 0.8rem;
   }
   .policy-bar__nav a {
@@ -86,7 +86,7 @@ const { title, description, eyebrow, heading, meta } = Astro.props;
     padding: 3rem 1.5rem 4.5rem;
   }
   .policy__eyebrow {
-    font-family: var(--ff-mono);
+    font-family: var(--ff-body);
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -95,14 +95,15 @@ const { title, description, eyebrow, heading, meta } = Astro.props;
   }
   .policy h1 {
     font-family: var(--ff-display);
-    font-size: clamp(2.1rem, 5vw, 3.2rem);
+    font-size: clamp(2rem, 4.4vw, 2.9rem);
+    letter-spacing: -0.038em;
     font-weight: 800;
     line-height: 1.05;
     margin: 0 0 0.5rem;
     color: var(--ink);
   }
   .policy__meta {
-    font-family: var(--ff-mono);
+    font-family: var(--ff-body);
     font-size: 0.8rem;
     color: var(--ink-mute);
     margin: 0 0 2rem;

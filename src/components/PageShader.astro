@@ -1,0 +1,67 @@
+---
+// Paper Shaders mesh gradient, fixed behind the whole page.
+//
+// Uses the vanilla @paper-design/shaders package rather than the React
+// wrapper (@paper-design/shaders-react), so the site does not need React,
+// react-dom and @astrojs/react added purely for a background. ShaderMount
+// is the same renderer the React component wraps; the props map onto
+// uniforms one-for-one.
+//
+// ShaderMount handles its own pausing when the tab is hidden or the element
+// leaves the viewport, and sizes itself to this element.
+---
+
+<div class="page-shader" aria-hidden="true"></div>
+
+<script>
+  import {
+    ShaderMount,
+    meshGradientFragmentShader,
+    getShaderColorFromString,
+    defaultObjectSizing,
+    ShaderFitOptions,
+  } from "@paper-design/shaders";
+
+  const host = document.querySelector<HTMLElement>(".page-shader");
+
+  // WebGL may be unavailable (old hardware, blocked context). The host keeps
+  // its CSS gradient in that case, and the type over it depends on that, so
+  // on failure the host stays and only the canvas is dropped.
+  if (host) {
+    try {
+      const colors = ["#0c12bb", "#ff005d", "#ff7824"].map(
+        getShaderColorFromString,
+      );
+
+      new ShaderMount(
+        host,
+        meshGradientFragmentShader,
+        {
+          u_colors: colors,
+          u_colorsCount: colors.length,
+          u_distortion: 0.2,
+          u_swirl: 0.11,
+          u_grainMixer: 0.33,
+          u_grainOverlay: 0.2,
+          // Sizing uniforms, matching the playground's defaults.
+          u_fit: ShaderFitOptions[defaultObjectSizing.fit],
+          u_scale: defaultObjectSizing.scale,
+          u_rotation: defaultObjectSizing.rotation,
+          u_originX: defaultObjectSizing.originX,
+          u_originY: defaultObjectSizing.originY,
+          u_offsetX: defaultObjectSizing.offsetX,
+          u_offsetY: defaultObjectSizing.offsetY,
+          u_worldWidth: defaultObjectSizing.worldWidth,
+          u_worldHeight: defaultObjectSizing.worldHeight,
+        },
+        undefined,
+        0.36, // speed
+        0, // starting frame
+        1, // minPixelRatio — a soft gradient gains nothing from 2x
+        1920 * 1080, // maxPixelCount — caps GPU cost on large displays
+      );
+    } catch (err) {
+      host.querySelector("canvas")?.remove();
+    }
+  }
+</script>

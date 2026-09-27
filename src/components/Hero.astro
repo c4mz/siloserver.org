@@ -7,18 +7,17 @@ const docsHref = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/docs`;
 ---
 
 <section class="hero">
-  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="hero__field" aria-hidden="true">
+    <canvas class="hero__canvas" data-hero-field></canvas>
+  </div>
   <div class="hero__inner container">
     <div class="hero__col hero__col--lede">
-      <div class="hero__stamp" aria-hidden="true">
-        <strong>{SITE.status}</strong>
-        <small>building in the open</small>
-      </div>
-
-      <p class="hero__eyebrow">
+      <div class="hero__stamp">
         <SiloBars size="sm" />
-        <span>datasheet SS-001 · Go · Postgres · gRPC</span>
-      </p>
+        <span class="hero__stamp-label">Current Status:</span>
+        <strong>{SITE.status}</strong>
+        <small>{SITE.license}</small>
+      </div>
 
       <h1 class="hero__title">
         <span>a self-hosted</span>
@@ -53,42 +52,221 @@ const docsHref = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/docs`;
           view source <span class="btn__arrow">↗</span>
         </a>
       </div>
-
-      <ul class="hero__meta">
-        <li>
-          <span class="hero__meta-label">backend</span>
-          <span class="hero__meta-value">Go 1.26</span>
-        </li>
-        <li>
-          <span class="hero__meta-label">store</span>
-          <span class="hero__meta-value">postgres 18 + pgvector</span>
-        </li>
-        <li>
-          <span class="hero__meta-label">media</span>
-          <span class="hero__meta-value">ffmpeg · qsv · vaapi · nvenc</span>
-        </li>
-        <li>
-          <span class="hero__meta-label">deploy</span>
-          <span class="hero__meta-value">docker compose · ghcr</span>
-        </li>
-      </ul>
     </div>
 
     <div class="hero__col hero__col--demo">
       <figure class="hero__fig">
         <Terminal />
         <figcaption class="hero__figcap">
-          <strong>fig. 01</strong>
           <span>first boot — single host, integrated mode</span>
         </figcaption>
       </figure>
     </div>
   </div>
-
-  <div class="hero__rule" aria-hidden="true">
-    <SiloBars size="row" />
-    <span class="hero__rule-line"></span>
-    <span class="hero__rule-text">full specification below</span>
-    <span class="hero__rule-line"></span>
-  </div>
 </section>
+
+<script>
+  // Drifting field of slanted slabs behind the hero. The shape, slant and
+  // colours are taken from the Silo mark (public/brand/silo-mark-flat.svg):
+  // rounded parallelograms rising to the right, in the mark's blue, pink and
+  // orange. The field is a flat backdrop — the .hero__veil above it clears
+  // the centre and fades all four edges so the type stays legible.
+  (() => {
+    const canvas =
+      document.querySelector<HTMLCanvasElement>("[data-hero-field]");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Mark colours; the dark set is lightened so low-alpha slabs stay
+    // visible against a near-black ground.
+    const PALETTES = {
+      light: { colors: ["#0034FB", "#F50B4F", "#FA7604"], base: 0.08, span: 0.3 },
+      dark: { colors: ["#5B7DFF", "#FF4E7E", "#FFA23D"], base: 0.1, span: 0.34 },
+    };
+    // Travel heading: exactly 30° above the horizontal, up and to the right.
+    // Negative because the canvas y axis points down. Every slab is given
+    // this one heading with no jitter, so the whole field runs parallel.
+    // Note this is the direction of travel only — the bar artwork keeps the
+    // mark's own 33° slant, so the slabs are not quite flying edge-on.
+    const ANGLE = (-30 * Math.PI) / 180;
+
+    // The middle bar of the mark, lifted verbatim from
+    // public/brand/silo-mark-flat.svg. The second subpath is the counter,
+    // so filling with "evenodd" punches the hole exactly as the logo does.
+    // Using the real outline (rather than a sheared rectangle) also keeps
+    // the proportions and corner radii honest.
+    const BAR = new Path2D(
+      "M0.167,356.350 A27,27 0 0 1 13.667,332.967 L225.667,210.569" +
+        " A27,27 0 0 1 266.167,233.952 L266.167,323.098" +
+        " A27,27 0 0 1 252.667,346.481 L40.667,468.879" +
+        " A27,27 0 0 1 0.167,445.496 Z" +
+        " M81.167,349.097 A11,11 0 0 1 86.667,339.571 L168.667,292.228" +
+        " A11,11 0 0 1 185.167,301.754 L185.167,330.351" +
+        " A11,11 0 0 1 179.667,339.877 L97.667,387.220" +
+        " A11,11 0 0 1 81.167,377.694 Z",
+    );
+    const BAR_W = 266; // path bounds, used to scale and centre
+    const BAR_CX = 133.167;
+    const BAR_CY = 339.724;
+
+    // Deliberate: the field drifts regardless of prefers-reduced-motion,
+    // matching the reference this was modelled on. The motion is slow,
+    // low-contrast and purely decorative, and it still pauses when the hero
+    // is scrolled away or the tab is hidden.
+
+    // Every slab is its own: placed uniformly at random across the canvas,
+    // with no shared seed points, so the field reads as an even scatter
+    // rather than as a handful of clumps. They all travel on the same exact
+    // heading, so what separates them is speed alone — which scales with
+    // depth, letting nearer slabs overtake further ones.
+    interface Slab {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number; // width of the bar; the path supplies the proportions
+      hue: number;
+      depth: number;
+    }
+
+    let w = 0;
+    let h = 0;
+    let slabs: Slab[] = [];
+    let raf = 0;
+    let last = 0;
+    let onScreen = true;
+
+    const rand = (a: number, b: number) => a + Math.random() * (b - a);
+    const palette = () =>
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? PALETTES.dark
+        : PALETTES.light;
+
+    function build() {
+      // Density scales with area so wide screens do not look sparse.
+      const count = Math.min(130, Math.max(24, Math.round((w * h) / 12000)));
+
+      // One shared velocity: the heading is identical for every slab, so
+      // only the speed multiplier differs.
+      const dirX = Math.cos(ANGLE);
+      const dirY = Math.sin(ANGLE);
+
+      slabs = Array.from({ length: count }, () => {
+        const depth = Math.random(); // 0 = far (small, faint, slow)
+        // Floor kept high enough that the counter still reads at small sizes.
+        const size = rand(13, 19) + depth * 23;
+        const speed = 14 + depth * 38; // px/s; nearer slabs overtake far ones
+        return {
+          // Independent of every other slab — a plain uniform scatter.
+          x: rand(0, w),
+          y: rand(0, h),
+          vx: dirX * speed,
+          vy: dirY * speed,
+          size,
+          hue: (Math.random() * 3) | 0,
+          depth,
+        };
+      });
+    }
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      w = rect.width;
+      h = rect.height;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      build();
+    }
+
+    function draw(dt: number) {
+      const { colors, base, span } = palette();
+      ctx.clearRect(0, 0, w, h);
+
+      // Comfortably clear of the largest slab, so a wrap happens well
+      // outside the frame and the edge fade covers the re-entry.
+      const pad = 80;
+
+      for (const s of slabs) {
+        s.x += s.vx * dt;
+        s.y += s.vy * dt;
+        // Every slab now travels up-right on the same heading, so in practice
+        // only the right edge and the top are ever crossed. The opposite two
+        // are kept as cheap insurance against a future change of sign in
+        // ANGLE, which would otherwise let the field drift off-frame.
+        if (s.x - pad > w) {
+          s.x = -pad;
+          s.y = rand(-pad, h + pad);
+        } else if (s.x + pad < 0) {
+          s.x = w + pad;
+          s.y = rand(-pad, h + pad);
+        }
+        if (s.y + pad < 0) {
+          s.y = h + pad;
+          s.x = rand(-pad, w + pad);
+        } else if (s.y - pad > h) {
+          s.y = -pad;
+          s.x = rand(-pad, w + pad);
+        }
+
+        const k = s.size / BAR_W;
+        ctx.save();
+        ctx.translate(s.x, s.y);
+        ctx.scale(k, k);
+        ctx.translate(-BAR_CX, -BAR_CY); // centre the path on the origin
+        ctx.globalAlpha = base + s.depth * span;
+        ctx.fillStyle = colors[s.hue];
+        ctx.fill(BAR, "evenodd"); // evenodd = the counter stays open
+        ctx.restore();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function frame(t: number) {
+      // Clamp dt so a backgrounded tab does not teleport the field on return.
+      const dt = Math.min((t - last) / 1000, 0.05);
+      last = t;
+      draw(dt);
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (raf || !onScreen || document.hidden) return;
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+    function stop() {
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+    }
+
+    resize();
+    draw(0);
+    canvas.classList.add("is-ready");
+
+    let resizeTimer = 0;
+    addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        resize();
+        draw(0);
+      }, 150);
+    });
+
+    // Don't burn frames when the hero is scrolled away or the tab is hidden.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        onScreen = entries[0].isIntersecting;
+        onScreen ? start() : stop();
+      }).observe(canvas);
+    }
+    document.addEventListener("visibilitychange", () =>
+      document.hidden ? stop() : start(),
+    );
+
+    start();
+  })();
+</script>

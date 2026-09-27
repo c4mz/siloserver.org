@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.39.2",
+    "@paper-design/shaders": "^0.0.80",
     "astro": "^6.0.0"
   },
   "devDependencies": {
