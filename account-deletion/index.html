@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>delete a Silo account · silo</title><meta name="description" content="How Silo Media Player users request deletion of an account and associated data from the operator of their self-hosted Silo server."><!-- Theme: set before paint to avoid a flash. Shares the
+         `starlight-theme` key so the choice carries into /docs. --><script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var KEY = "starlight-theme";
+          var el = document.documentElement;
+          var c = localStorage.getItem(KEY);
+          var m = c === "light" || c === "dark" || c === "auto" ? c : "auto";
+          var d =
+            m === "dark" ||
+            (m !== "light" &&
+              matchMedia("(prefers-color-scheme: dark)").matches);
+          el.setAttribute("data-theme", d ? "dark" : "light");
+          el.setAttribute("data-mode", m);
+        } catch (e) {}
+      })();
+    </script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"><link rel="icon" href="/siloserver.org/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="192x192" href="/siloserver.org/web-app-icon-192.png"><link rel="icon" type="image/png" sizes="512x512" href="/siloserver.org/web-app-icon-512.png"><link rel="apple-touch-icon" href="/siloserver.org/apple-touch-icon.png"><link rel="manifest" href="/siloserver.org/site.webmanifest"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#08080a" media="(prefers-color-scheme: dark)"><meta property="og:title" content="delete a Silo account · silo"><meta property="og:description" content="How Silo Media Player users request deletion of an account and associated data from the operator of their self-hosted Silo server."><meta property="og:type" content="website"><meta property="og:image" content="/siloserver.org/web-app-icon-512.png"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/siloserver.org/_astro/Bottombar.B68kQQaN.css">
+<style>.policy-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:var(--container);margin:0 auto;padding:1.1rem 1.5rem;border-bottom:1px solid var(--rule)}.policy-bar__brand{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--ff-display);font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:var(--ink);text-decoration:none}.policy-bar__nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.6rem 1.25rem;font-family:var(--ff-body);font-size:.8rem}.policy-bar__nav a{color:var(--ink-soft);text-decoration:none}.policy-bar__nav a:hover{color:var(--blue)}.policy{max-width:var(--container-narrow);margin:0 auto;padding:3rem 1.5rem 4.5rem}.policy__eyebrow{font-family:var(--ff-body);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 .75rem}.policy h1{font-family:var(--ff-display);font-size:clamp(2rem,4.4vw,2.9rem);letter-spacing:-.038em;font-weight:800;line-height:1.05;margin:0 0 .5rem;color:var(--ink)}.policy__meta{font-family:var(--ff-body);font-size:.8rem;color:var(--ink-mute);margin:0 0 2rem}.policy__lede{font-size:1.1rem;line-height:1.65;color:var(--ink-soft);border-left:3px solid var(--blue);padding-left:1rem;margin:0 0 2.5rem}.policy h2,.policy h3{font-family:var(--ff-display);font-weight:700;color:var(--ink)}.policy h2{font-size:1.35rem;margin:2.2rem 0 .6rem}.policy h3{font-size:1.08rem;margin:1.4rem 0 .45rem}.policy p,.policy li{font-family:var(--ff-body);font-size:.98rem;line-height:1.7;color:var(--ink-soft)}.policy p{margin:0 0 .9rem}.policy ul,.policy ol{margin:0 0 .9rem;padding-left:1.4rem}.policy li{margin-bottom:.35rem}.policy a{color:var(--blue)}.policy strong{color:var(--ink)}@media(max-width:720px){.policy-bar{align-items:flex-start}.policy-bar__nav{max-width:72%}}
+</style><script type="module" src="/siloserver.org/_astro/page.B_tncCx8.js"></script></head> <body> <div class="shell"> <div class="page-shader" aria-hidden="true"></div> <script type="module" src="/siloserver.org/_astro/PageShader.astro_astro_type_script_index_0_lang.BlLS0Qhv.js"></script> <a class="skip-link" href="#main">Skip to content</a>  <header class="policy-bar"> <a class="policy-bar__brand" href="/" aria-label="silo home"> <span class="brand-lockup " role="img" aria-label="Silo"> <img class="brand-lockup__on-light" src="/siloserver.org/brand/silo-wordmark-dark.svg" alt="" aria-hidden="true" width="1389" height="720"> <img class="brand-lockup__on-dark" src="/siloserver.org/brand/silo-wordmark-white.svg" alt="" aria-hidden="true" width="1389" height="720"> </span> </a> <nav class="policy-bar__nav" aria-label="Primary"> <a href="/">home</a> <a href="/docs">docs</a> <a href="/brand">brand</a> <a href="/privacy">privacy</a> <a href="/account-deletion">account deletion</a> <a href="https://discord.gg/siloserver">discord ↗</a> <a href="https://github.com/Silo-Server">github ↗</a> </nav> </header> <main id="main" class="policy"> <article class="policy__body"> <p class="policy__eyebrow">legal / 02</p> <h1>Delete a Silo account</h1> <p class="policy__meta">Last updated August 12, 2026</p>  <p class="policy__lede">
+Silo Media Player does not provide or host centralized user accounts. An
+    account created in the app belongs to the self-hosted Silo server selected
+    by the user. That server's operator—not the Silo project—controls the
+    account and its associated data.
+</p> <h2>Request deletion from your server operator</h2> <ol> <li>
+Identify the person or organization that gave you the Silo server
+      address, invitation, or login. That is normally the server operator.
+</li> <li>
+Contact that operator and ask them to delete your Silo user account and
+      associated data.
+</li> <li>
+Give the operator the username or email address used on that server so
+      they can locate the correct account. Share the server address and account
+      details only with that operator—not with the Silo project.
+</li> </ol> <p>
+The Silo project cannot identify the operator of an arbitrary self-hosted
+    server, access its administration tools, verify its users, or delete data
+    from it.
+</p> <h2>Instructions for a Silo server administrator</h2> <ol> <li>Sign in to the self-hosted Silo web application as an administrator.</li> <li>Open <strong>Administration → Users</strong>.</li> <li>Select the requesting user and choose <strong>Delete user</strong>.</li> <li>Confirm the permanent deletion.</li> </ol> <p>
+Account deletion is performed by the self-hosted server. It does not send
+    account information or a deletion request to the Silo project.
+</p> <h2>Data deleted from the live server</h2> <p>
+Deleting a user removes the account from the live Silo database and
+    invalidates its active sessions. Associated user-scoped records are also
+    deleted, including, where present:
+</p> <ul> <li>profiles and profile access assignments;</li> <li>authentication sessions, API keys, and registered device records;</li> <li>settings and preferences;</li> <li>watch history, playback progress, ratings, favorites, and watchlist;</li> <li>personal collections and related user-created state; and</li> <li>user-scoped download, notification, request, and synchronization state.</li> </ul> <h2>Data that may be kept</h2> <p>
+A server operator may retain backups, security logs, audit records, or
+    information required by law or legitimate security needs. The operator
+    determines those retention periods and is responsible for explaining them
+    to the user. Some shared library metadata or administrative records may
+    remain without being associated with the deleted account.
+</p> <h2>Data stored on your device</h2> <p>
+Removing a server from Silo Media Player, signing out, clearing the app's
+    storage, or uninstalling the app removes the applicable local credentials,
+    caches, settings, and downloaded media. These actions do not delete the
+    account held by the self-hosted server; the server operator must still
+    complete the steps above.
+</p> <h2>Silo-managed diagnostics and push delivery</h2> <p>
+Optional Silo-managed diagnostic reports are not linked to an account on a
+    self-hosted server, so deleting that account does not identify or delete a
+    previously sent report. Diagnostic reports expire within 30 days. To
+    request earlier report deletion, email
+<a href="mailto:feedback@siloserver.org">feedback@siloserver.org</a> and include the
+    report reference shown in the app.
+</p> <p>
+The content-free Silo push relay does not hold self-hosted account records.
+    Revoking a device or deleting the user on the self-hosted server stops that
+    server from sending future pushes for the deleted account.
+</p> <h2>Questions</h2> <p>
+Questions about these instructions may be sent to
+<a href="mailto:feedback@siloserver.org">feedback@siloserver.org</a>. Do not send your
+    password, authentication token, private server address, or other account
+    credentials. Silo cannot forward a deletion request to an unknown
+    self-hosted server operator.
+</p>  </article> </main> <footer class="titleblock" aria-label="Footer"> <div class="titleblock__inner"> <div class="titleblock__cell"> <a class="titleblock__brand" href="/" aria-label="silo home"> <span class="brand-lockup " role="img" aria-label="Silo"> <img class="brand-lockup__on-light" src="/siloserver.org/brand/silo-wordmark-dark.svg" alt="" aria-hidden="true" width="1389" height="720"> <img class="brand-lockup__on-dark" src="/siloserver.org/brand/silo-wordmark-white.svg" alt="" aria-hidden="true" width="1389" height="720"> </span> </a> </div> <div class="titleblock__cell"> <span class="titleblock__label">repositories</span> <span class="titleblock__value"> <a href="https://github.com/Silo-Server/silo-server">silo-server</a> <a href="https://github.com/Silo-Server/silo-apple">silo-apple</a> <a href="https://github.com/Silo-Server/silo-android">silo-android</a> <a href="https://github.com/Silo-Server/silo-plugin-sdk">plugin-sdk</a> </span> </div> <div class="titleblock__cell"> <span class="titleblock__label">community</span> <span class="titleblock__value"> <a href="https://discord.gg/siloserver">discord ↗</a> <a href="https://github.com/Silo-Server">github ↗</a> </span> </div> <div class="titleblock__cell"> <span class="titleblock__label">license</span> <span class="titleblock__value">AGPL-3.0-or-later</span> </div> <div class="titleblock__cell"> <span class="titleblock__label">legal</span> <span class="titleblock__value"> <a href="/brand">brand assets</a> <a href="/privacy">privacy policy</a> <a href="/account-deletion">account deletion</a> </span> </div> <div class="titleblock__cell"> <span class="titleblock__label">drawn with</span> <span class="titleblock__value"> <span class="ink-red">♥</span> + <span class="ink-blue">ffmpeg</span> </span> </div> </div> </footer>  </div> <script>
+      (function () {
+        var KEY = "starlight-theme";
+        var r = document.documentElement;
+        var b = document.getElementById("themeToggle");
+        if (!b) return;
+        var mq = matchMedia("(prefers-color-scheme: dark)");
+        function stored() {
+          try {
+            return localStorage.getItem(KEY);
+          } catch (e) {
+            return null;
+          }
+        }
+        function mode(v) {
+          return v === "light" || v === "dark" || v === "auto" ? v : "auto";
+        }
+        function effective(m) {
+          return m === "dark" || m === "light"
+            ? m
+            : mq.matches
+              ? "dark"
+              : "light";
+        }
+        function label(m) {
+          b.setAttribute(
+            "aria-label",
+            "Theme: " + (m === "auto" ? "auto (follow system)" : m),
+          );
+        }
+        function apply() {
+          var m = mode(stored());
+          r.setAttribute("data-mode", m);
+          r.setAttribute("data-theme", effective(m));
+          label(m);
+        }
+        // Sync the label to the persisted mode on load, not just on click.
+        apply();
+        // Cycle: auto (follow system) → light → dark → auto.
+        // Each state has its own icon: monitor / sun / moon.
+        b.addEventListener("click", function () {
+          var c = mode(stored());
+          var n = c === "auto" ? "light" : c === "light" ? "dark" : "auto";
+          try {
+            localStorage.setItem(KEY, n);
+          } catch (e) {}
+          apply();
+        });
+        mq.addEventListener("change", function () {
+          if (mode(stored()) === "auto") apply();
+        });
+      })();
+    </script> </body> </html>

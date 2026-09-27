@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>privacy policy · silo</title><meta name="description" content="Privacy policy for the Silo client apps, self-hosted servers, optional hosted diagnostics, and the content-free push relay."><!-- Theme: set before paint to avoid a flash. Shares the
+         `starlight-theme` key so the choice carries into /docs. --><script>
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var KEY = "starlight-theme";
+          var el = document.documentElement;
+          var c = localStorage.getItem(KEY);
+          var m = c === "light" || c === "dark" || c === "auto" ? c : "auto";
+          var d =
+            m === "dark" ||
+            (m !== "light" &&
+              matchMedia("(prefers-color-scheme: dark)").matches);
+          el.setAttribute("data-theme", d ? "dark" : "light");
+          el.setAttribute("data-mode", m);
+        } catch (e) {}
+      })();
+    </script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"><link rel="icon" href="/siloserver.org/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="192x192" href="/siloserver.org/web-app-icon-192.png"><link rel="icon" type="image/png" sizes="512x512" href="/siloserver.org/web-app-icon-512.png"><link rel="apple-touch-icon" href="/siloserver.org/apple-touch-icon.png"><link rel="manifest" href="/siloserver.org/site.webmanifest"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#08080a" media="(prefers-color-scheme: dark)"><meta property="og:title" content="privacy policy · silo"><meta property="og:description" content="Privacy policy for the Silo client apps, self-hosted servers, optional hosted diagnostics, and the content-free push relay."><meta property="og:type" content="website"><meta property="og:image" content="/siloserver.org/web-app-icon-512.png"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="/siloserver.org/_astro/Bottombar.B68kQQaN.css">
+<style>.policy-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:var(--container);margin:0 auto;padding:1.1rem 1.5rem;border-bottom:1px solid var(--rule)}.policy-bar__brand{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--ff-display);font-weight:700;font-size:1.15rem;letter-spacing:.02em;color:var(--ink);text-decoration:none}.policy-bar__nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.6rem 1.25rem;font-family:var(--ff-body);font-size:.8rem}.policy-bar__nav a{color:var(--ink-soft);text-decoration:none}.policy-bar__nav a:hover{color:var(--blue)}.policy{max-width:var(--container-narrow);margin:0 auto;padding:3rem 1.5rem 4.5rem}.policy__eyebrow{font-family:var(--ff-body);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 .75rem}.policy h1{font-family:var(--ff-display);font-size:clamp(2rem,4.4vw,2.9rem);letter-spacing:-.038em;font-weight:800;line-height:1.05;margin:0 0 .5rem;color:var(--ink)}.policy__meta{font-family:var(--ff-body);font-size:.8rem;color:var(--ink-mute);margin:0 0 2rem}.policy__lede{font-size:1.1rem;line-height:1.65;color:var(--ink-soft);border-left:3px solid var(--blue);padding-left:1rem;margin:0 0 2.5rem}.policy h2,.policy h3{font-family:var(--ff-display);font-weight:700;color:var(--ink)}.policy h2{font-size:1.35rem;margin:2.2rem 0 .6rem}.policy h3{font-size:1.08rem;margin:1.4rem 0 .45rem}.policy p,.policy li{font-family:var(--ff-body);font-size:.98rem;line-height:1.7;color:var(--ink-soft)}.policy p{margin:0 0 .9rem}.policy ul,.policy ol{margin:0 0 .9rem;padding-left:1.4rem}.policy li{margin-bottom:.35rem}.policy a{color:var(--blue)}.policy strong{color:var(--ink)}@media(max-width:720px){.policy-bar{align-items:flex-start}.policy-bar__nav{max-width:72%}}
+</style><script type="module" src="/siloserver.org/_astro/page.B_tncCx8.js"></script></head> <body> <div class="shell"> <div class="page-shader" aria-hidden="true"></div> <script type="module" src="/siloserver.org/_astro/PageShader.astro_astro_type_script_index_0_lang.BlLS0Qhv.js"></script> <a class="skip-link" href="#main">Skip to content</a>  <header class="policy-bar"> <a class="policy-bar__brand" href="/" aria-label="silo home"> <span class="brand-lockup " role="img" aria-label="Silo"> <img class="brand-lockup__on-light" src="/siloserver.org/brand/silo-wordmark-dark.svg" alt="" aria-hidden="true" width="1389" height="720"> <img class="brand-lockup__on-dark" src="/siloserver.org/brand/silo-wordmark-white.svg" alt="" aria-hidden="true" width="1389" height="720"> </span> </a> <nav class="policy-bar__nav" aria-label="Primary"> <a href="/">home</a> <a href="/docs">docs</a> <a href="/brand">brand</a> <a href="/privacy">privacy</a> <a href="/account-deletion">account deletion</a> <a href="https://discord.gg/siloserver">discord ↗</a> <a href="https://github.com/Silo-Server">github ↗</a> </nav> </header> <main id="main" class="policy"> <article class="policy__body"> <p class="policy__eyebrow">legal / 01</p> <h1>Privacy Policy — Silo Apps</h1> <p class="policy__meta">Effective August 16, 2026</p>  <p class="policy__lede">
+Silo is self-hosted software. Your account records, media library, and
+    viewing history live on the Silo server that you choose, not in a central
+    Silo account. Some screens load artwork, avatars, or trailer information
+    from external providers as described below. The apps contain no advertising
+    or tracking SDKs. Optional Silo-managed diagnostics and push delivery use
+    only the limited technical data described below.
+</p> <h2>1. Scope</h2> <p>
+This policy covers the first-party Silo client applications: Silo for
+    Android, Silo for Android TV, Silo for iOS, Silo for tvOS, and Silo for
+    macOS (together, "the apps"), published by the Silo project. It also
+    describes the optional Silo-managed diagnostics collector and push relay.
+    Section 4 also describes equivalent external-resource requests made by the
+    first-party web client bundled with a self-hosted Silo server. This policy
+    does not otherwise govern a self-hosted Silo server or a third-party client.
+    The operator of each self-hosted server controls that server and its data.
+</p> <h2>2. Self-hosted accounts and media activity</h2> <p>
+The apps connect to the Silo server whose address you configure. Account
+    registration, sign-in credentials, profiles, media-library data, playback
+    progress, search queries, requests, and streaming traffic go to that
+    server. The Silo project does not receive or control this information.
+    Who can access it and how long it is retained are determined by the
+    operator of the self-hosted server.
+</p> <p>
+We recommend serving Silo over HTTPS. Whether the connection to a
+    self-hosted server is encrypted depends on that server's configuration.
+    For instructions on requesting deletion from a server operator, see
+<a href="/account-deletion">Delete a Silo account</a>.
+</p> <h2>3. Data stored on your device</h2> <p>To function, the apps may keep the following data locally:</p> <ul> <li>the addresses of the Silo servers you add;</li> <li>sign-in tokens issued by those servers;</li> <li>cached library metadata and artwork;</li> <li>playback positions and other user preferences;</li> <li>media you explicitly download for offline use; and</li> <li>pending diagnostic reports and redacted diagnostic breadcrumbs.</li> </ul> <p>
+You can remove locally retained diagnostics in the app. Signing out,
+    removing a server, clearing the app's data, or uninstalling the app removes
+    the applicable local data. Removing local data does not by itself delete
+    an account or data held by a self-hosted server.
+</p> <h2>4. Third-party artwork, avatars, and trailers</h2> <p>
+The apps and the first-party web client may cause external providers to be
+    contacted, either directly or through your self-hosted server, to provide
+    the following resources. These requests do not pass through the
+    Silo-managed diagnostics collector or push relay.
+</p> <ul> <li> <strong>TMDB request discovery and artwork.</strong> When Silo's Requests
+      feature is enabled, request searches and discovery use the self-hosted
+      server's built-in TMDB integration. This integration operates independently
+      of metadata plugins, so the server may send search text and request or
+      discovery queries to TMDB even when no TMDB metadata plugin is installed
+      or enabled. The client sends those queries to your self-hosted server, not
+      directly to TMDB, and does not send TMDB your Silo credentials. Posters and
+      backdrops returned for request search, discovery, or detail screens may
+      then load directly from <code>image.tmdb.org</code>. The separate image
+      request includes the requested image path and size.
+</li> <li> <strong>DiceBear avatars.</strong> Generated avatar previews and saved
+      preset avatars may load directly from <code>api.dicebear.com</code> while
+      an avatar picker, profile-selection screen, or other profile display is
+      rendered. The request includes the selected style, seed, image format,
+      size, and other image options. Most presets use generated word-pair seeds.
+      The current Apple and Android TV initials-avatar flows instead use the
+      profile name as the DiceBear seed; after that choice is saved, another
+      Silo client may request the same name-based seed when it displays the
+      profile. Silo does not send DiceBear a Silo password, sign-in token, email
+      address, or self-hosted server address as part of an avatar-image request.
+</li> <li> <strong>YouTube trailers.</strong> The Apple apps and first-party web
+      client may load a trailer thumbnail directly from
+<code>i.ytimg.com</code> before you select the trailer. The request
+      includes the YouTube video identifier. Selecting a trailer in an Apple
+      app attempts to open the installed YouTube app with that identifier. In
+      the web client, selecting a trailer loads a player from
+<code>youtube-nocookie.com</code>. YouTube then handles the playback
+      interaction. Silo does not download, proxy, or restream YouTube videos.
+</li> </ul> <p>
+A self-hosted server may also return an absolute artwork or avatar URL. If
+    a Silo client displays that resource, the device contacts the URL's host
+    directly. The self-hosted server operator controls whether it supplies such
+    URLs and is responsible for its own provider choices and disclosures.
+</p> <p>
+Each direct request necessarily reveals the connection IP address, request
+    time, requested URL, and standard app, browser, device, and transport
+    metadata to the provider and its delivery infrastructure. An artwork or
+    video identifier may reveal the media title or trailer being displayed; an
+    avatar seed identifies the generated avatar and, in the initials-avatar
+    cases described above, may contain the profile name. Resources may be
+    cached on the device or by the browser, which can avoid some repeat
+    requests.
+</p> <p>
+Silo does not control these providers' logs, uses, retention, or deletion
+    practices. See the privacy information published by
+<a href="https://www.themoviedb.org/privacy-policy">TMDB</a>,
+<a href="https://www.iubenda.com/privacy-policy/57216581/full-legal">DiceBear</a>, and <a href="https://policies.google.com/privacy">Google</a>. Their
+    practices and retention periods may differ, and their public policies do
+    not provide a resource-request-specific retention period for every item
+    listed above.
+</p> <h2>5. Optional diagnostics</h2> <p>
+The Silo apps can create diagnostic reports for crashes, hangs,
+    application-not-responding events, playback, networking, focus, casting,
+    downloads, browsing, and app lifecycle problems. Availability varies by
+    app version and platform. Reports remain on the device for review until
+    you choose what to do with them. A report is not sent to the Silo-managed
+    collector unless you explicitly select <strong>Send</strong>. Hosted
+    diagnostics are not available to child profiles and are never uploaded
+    automatically.
+</p> <h3>Silo-managed diagnostics</h3> <p>A hosted diagnostic report may contain:</p> <ul> <li>the exact app version and build number;</li> <li>operating-system version, device manufacturer, model, and form factor;</li> <li>display, audio-route, video-codec, and network-type capabilities;</li> <li>crash or exit type, summary, stack excerpt, and timestamps; and</li> <li>
+bounded technical logs and breadcrumbs describing redacted app events
+      and performance conditions.
+</li> </ul> <p>
+The collector uses a random installation credential to authenticate
+    uploads, enforce quotas, and associate retries. It is not linked to an
+    account or profile on any self-hosted Silo server, but it can correlate
+    reports sent from the same app installation. Hosted diagnostics are
+    therefore <strong>pseudonymous, not fully anonymous</strong>.
+</p> <p>
+The apps remove account and profile identifiers, usernames, email
+    addresses, credentials, authentication tokens, self-hosted server IP
+    addresses and hostnames, media identifiers, and playback-session
+    identifiers from hosted reports. Client-side filtering and collector-side
+    validation are designed to reject these values before a report is
+    retained. Because free-form crash stacks and logs can be unpredictable,
+    we do not describe this filtering as a mathematical guarantee of
+    anonymity.
+</p> <p>
+Silo-authorized operators may inspect retained reports solely to diagnose
+    and fix application problems. Reports and their approved extracted
+    artifacts are encrypted in transit, stored in private Cloudflare services,
+    and deleted within 30 days. You may request earlier deletion by emailing
+<a href="mailto:feedback@siloserver.org">feedback@siloserver.org</a> with the report
+    reference shown by the app. Minimal audit records may retain the report
+    reference, action, actor, and time after the report contents are erased.
+</p> <p>
+The collector and Cloudflare necessarily receive the connection IP address.
+    Silo uses it for registration and abuse rate limiting and does not place it
+    in the diagnostic report or collector database. Cloudflare may process
+    standard edge, security, and request metadata under its own policies.
+</p> <h3>Diagnostics sent to your own server</h3> <p>
+You may instead choose the diagnostics endpoint on your active self-hosted
+    Silo server. Those reports go to that server, not to the Silo-managed
+    collector. Access, security, retention, and deletion are controlled by the
+    server operator.
+</p> <h2>6. Push notifications</h2> <p>
+Notifications for playback controls and download progress are generated
+    locally. Remote push is optional and off unless the user and server
+    administrator enable it. When enabled, the self-hosted server sends a
+    content-free request to Silo's Cloudflare Worker push relay for delivery
+    through Apple Push Notification service or Firebase Cloud Messaging.
+</p> <p>
+The relay does not receive notification titles, message bodies, media
+    names, usernames, profile names, or the self-hosted server URL. It
+    transiently processes a device push token, platform environment and app
+    topic, opaque device and delivery identifiers, and request timing and
+    status. Its durable storage contains opaque deployment status, quota,
+    credential-rotation, retry, and idempotency state, one-way request hashes,
+    and redacted delivery results—not notification content or clear device
+    tokens.
+</p> <p>
+Cloudflare handles the source IP and standard Worker request metadata for
+    operations and abuse control. Apple or Google may process standard push
+    delivery metadata under their own policies. More detail is available in
+    the
+<a href="/docs/notifications#privacy-model">notification privacy documentation</a>.
+</p> <h2>7. Analytics, advertising, and sale of data</h2> <p>
+The apps contain no advertising or cross-app tracking SDKs. Silo does not
+    sell personal data. Optional diagnostics are used only for application
+    support, reliability, security, and bug diagnosis; the push relay is used
+    only for delivery, reliability, and abuse prevention.
+</p> <h2>8. App permissions</h2> <p>The Android apps request permissions needed for app functionality:</p> <ul> <li> <strong>Internet and network state</strong> — to reach your server and,
+      when you choose, Silo-managed services;
+</li> <li> <strong>Foreground services and wake lock</strong> — to keep playback
+      and downloads running with the screen off;
+</li> <li> <strong>Notifications</strong> — to show playback controls, download
+      progress, and enabled remote notifications; and
+</li> <li> <strong>TV channel/EPG access on Android TV</strong> — to publish library
+      rows and channels to the Android TV home screen.
+</li> </ul> <p>
+The apps do not request location, contacts, camera, or microphone access
+    for diagnostics.
+</p> <h2>9. External providers and app stores</h2> <p>
+Cloudflare hosts the optional diagnostics collector and push relay as a
+    service provider to Silo. The apps are distributed through Google Play
+    and the Apple App Store, which may independently collect install, crash,
+    and diagnostics information under their own policies. Apple and Google
+    also operate the platform push services described above. TMDB, DiceBear,
+    and Google/YouTube receive the direct resource requests described in
+    Section 4 under their own policies; Silo does not describe them as acting
+    solely on Silo's instructions.
+</p> <h2>10. Children</h2> <p>
+The apps are general-audience tools for accessing a media server and are
+    not directed at children. Hosted diagnostic capture and upload are disabled
+    for child profiles. Silo does not use data from any user for advertising
+    or tracking.
+</p> <h2>11. This website</h2> <p>
+siloserver.org is a static site hosted on GitHub Pages and runs no Silo
+    analytics. GitHub may log standard access data, such as IP addresses, as
+    the host. The site also loads web fonts from Google Fonts, which causes a
+    request to Google's servers.
+</p> <h2>12. Changes to this policy</h2> <p>
+We will update this page and its effective date when the apps' data
+    practices materially change. We intend to keep private account and media
+    data on the user's selected server and limit Silo-managed services to the
+    technical data necessary for their stated purposes.
+</p> <h2>13. Contact</h2> <p>
+For privacy questions, open an issue on
+<a href="https://github.com/Silo-Server">GitHub</a> or email
+<a href="mailto:feedback@siloserver.org">feedback@siloserver.org</a>. Silo cannot access
+    or delete an account on a self-hosted server; use the
+<a href="/account-deletion">account-deletion instructions</a> to contact
+    that server's operator.
+</p>  </article> </main> <footer class="titleblock" aria-label="Footer"> <div class="titleblock__inner"> <div class="titleblock__cell"> <a class="titleblock__brand" href="/" aria-label="silo home"> <span class="brand-lockup " role="img" aria-label="Silo"> <img class="brand-lockup__on-light" src="/siloserver.org/brand/silo-wordmark-dark.svg" alt="" aria-hidden="true" width="1389" height="720"> <img class="brand-lockup__on-dark" src="/siloserver.org/brand/silo-wordmark-white.svg" alt="" aria-hidden="true" width="1389" height="720"> </span> </a> </div> <div class="titleblock__cell"> <span class="titleblock__label">repositories</span> <span class="titleblock__value"> <a href="https://github.com/Silo-Server/silo-server">silo-server</a> <a href="https://github.com/Silo-Server/silo-apple">silo-apple</a> <a href="https://github.com/Silo-Server/silo-android">silo-android</a> <a href="https://github.com/Silo-Server/silo-plugin-sdk">plugin-sdk</a> </span> </div> <div class="titleblock__cell"> <span class="titleblock__label">community</span> <span class="titleblock__value"> <a href="https://discord.gg/siloserver">discord ↗</a> <a href="https://github.com/Silo-Server">github ↗</a> </span> </div> <div class="titleblock__cell"> <span class="titleblock__label">license</span> <span class="titleblock__value">AGPL-3.0-or-later</span> </div> <div class="titleblock__cell"> <span class="titleblock__label">legal</span> <span class="titleblock__value"> <a href="/brand">brand assets</a> <a href="/privacy">privacy policy</a> <a href="/account-deletion">account deletion</a> </span> </div> <div class="titleblock__cell"> <span class="titleblock__label">drawn with</span> <span class="titleblock__value"> <span class="ink-red">♥</span> + <span class="ink-blue">ffmpeg</span> </span> </div> </div> </footer>  </div> <script>
+      (function () {
+        var KEY = "starlight-theme";
+        var r = document.documentElement;
+        var b = document.getElementById("themeToggle");
+        if (!b) return;
+        var mq = matchMedia("(prefers-color-scheme: dark)");
+        function stored() {
+          try {
+            return localStorage.getItem(KEY);
+          } catch (e) {
+            return null;
+          }
+        }
+        function mode(v) {
+          return v === "light" || v === "dark" || v === "auto" ? v : "auto";
+        }
+        function effective(m) {
+          return m === "dark" || m === "light"
+            ? m
+            : mq.matches
+              ? "dark"
+              : "light";
+        }
+        function label(m) {
+          b.setAttribute(
+            "aria-label",
+            "Theme: " + (m === "auto" ? "auto (follow system)" : m),
+          );
+        }
+        function apply() {
+          var m = mode(stored());
+          r.setAttribute("data-mode", m);
+          r.setAttribute("data-theme", effective(m));
+          label(m);
+        }
+        // Sync the label to the persisted mode on load, not just on click.
+        apply();
+        // Cycle: auto (follow system) → light → dark → auto.
+        // Each state has its own icon: monitor / sun / moon.
+        b.addEventListener("click", function () {
+          var c = mode(stored());
+          var n = c === "auto" ? "light" : c === "light" ? "dark" : "auto";
+          try {
+            localStorage.setItem(KEY, n);
+          } catch (e) {}
+          apply();
+        });
+        mq.addEventListener("change", function () {
+          if (mode(stored()) === "auto") apply();
+        });
+      })();
+    </script> </body> </html>
